@@ -31,9 +31,12 @@ RUN pnpm ui:build
 
 ENV NODE_ENV=production
 
+# ✅ NEW: copy start script into the image and make it executable
+COPY start.sh /start.sh
+RUN chmod +x /start.sh && chown node:node /start.sh
+
 # Security hardening: Run as non-root user
-# The node:22-bookworm image includes a 'node' user (uid 1000)
-# This reduces the attack surface by preventing container escape via root privileges
 USER node
 
-CMD ["node", "dist/index.js"]
+# ✅CHANGE: start the gateway (not "node dist/index.js" with no args)
+CMD ["/start.sh"]
