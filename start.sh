@@ -19,4 +19,4 @@ corepack enable >/dev/null 2>&1 || true
 # Start OpenClaw gateway
 exec corepack pnpm exec openclaw gateway \
   --port "${PORT}" \
-  --setup-password "${OPENCLAW_SETUP_PASSWORD}"
+  --setup-password "${SETUP_PASSWORD}"
