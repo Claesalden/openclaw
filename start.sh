@@ -3,5 +3,5 @@ set -eu
 
 cd /app
 
-# Use Corepack so we don't care where pnpm lives
-exec corepack pnpm exec openclaw gateway --host 0.0.0.0 --port "${PORT:-8080}"
+# Run the built CLI directly with Node (avoids pnpm/.bin permission issues)
+exec node dist/index.js gateway --host 0.0.0.0 --port "${PORT:-8080}"
