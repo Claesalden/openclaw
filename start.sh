@@ -11,4 +11,4 @@ exec node dist/index.js gateway \
   --bind lan \
   --auth token \
   --token "${OPENCLAW_GATEWAY_TOKEN:?set OPENCLAW_GATEWAY_TOKEN in Render}"
-  --token "${SETUP_PASSWORD:?set SETUP_PASSWORD in Render}"
+#  --token "${SETUP_PASSWORD:?set SETUP_PASSWORD in Render}"
